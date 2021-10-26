@@ -49,6 +49,19 @@ while playAgain == 'yes' or playAgain == 'y':
     
 	print('Do you want to play again? (yes or no)')
 	playAgain = input()
-	if playAgain == "no":
-		print("Thanks for planing")
+	properInput = False
+	while not properInput:
+		try:
+			if playAgain == "no" or playAgain == 'n':
+				print("Thanks for playing")
+				properInput = True
+			elif playAgain == 'yes' or playAgain == 'y':
+				properInput = True
+				continue
+			else:
+				raise ValueError
+		except ValueError:
+			print("You did not enter yes or now.")
+			print('Do you want to play again? (yes or no)')
+			playAgain = input()
 
